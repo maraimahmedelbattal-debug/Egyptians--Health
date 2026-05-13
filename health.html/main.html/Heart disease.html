@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cardiovascular Diseases</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f5fb;
+      font-family: 'Playpen Sans Arabic', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .header {
+      background-color: #38ACEC;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    } 
+    .header input {
+      color: gray;
+      text-align: center;
+      padding: 10px 15px;
+      width: 300px;
+      border-radius: 50px;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .header input:hover {
+      cursor: text;
+      transform: scale(1.1);
+    }
+
+    .tittl {
+      text-align: center;
+      padding: 30px 20px 10px 20px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      color: #0072b1;
+      margin-top: 30px;
+    }
+
+    .text {
+      width: 75%;
+      margin: 20px auto;
+      padding: 25px 30px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      line-height: 1.8;
+      font-size: 16px;
+      text-align: left;
+      direction: ltr;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation : fadeUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .text:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    h3 {
+      margin-top: 25px;
+      margin-bottom: 10px;
+      color: #0072b1;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 10px 0;
+      list-style-position: inside;
+    }
+
+    li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    li::before {
+      content: "✔"; 
+      color: #0072b1;
+      position: absolute;
+      left: 0;
+    }
+
+    .contact-section {
+      background-color : #eaf4ff;
+      padding : 40px;
+      text-align : center;
+      margin-top : 50px;   
+    }  
+    
+    .contact-section h3 {
+      margin-bottom: 20px;
+    }
+    
+    .contact-section p {
+      margin: 8px 0;
+      font-size: 16px;
+    }   
+    
+    footer {
+      color: black;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      font-size : 18px;  
+    }
+    
+    @keyframes fadeUp {
+      from {
+        opacity : 0;
+        transform : translateY(100px);
+      }
+      to {
+        opacity : 1;
+        transform : translateY(0);
+      }  
+    }   
+  </style>
+</head>
+<body>
+  <div class="header">
+    <input type="text" placeholder="🔎 Click to search here...">
+  </div>
+
+  <div class="tittl">
+    Egyptians' Health - Cardiovascular Diseases
+  </div>
+
+  <div class="text" id="content">
+    <h3>Cardiovascular Diseases</h3>
+ 
+    <h3>About the Diseases</h3>
+    <p>Cardiovascular diseases include a group of conditions that affect the heart and blood vessels, such as high blood pressure, atherosclerosis, heart failure, and heart attacks. These diseases are considered among the leading causes of death worldwide, which makes prevention and early detection essential.</p>
+    
+    <h3>Common Symptoms</h3>
+    <ul>
+      <li>Chest pain or pressure.</li>
+      <li>Shortness of breath during activity or rest.</li>
+      <li>Palpitations or rapid heartbeat.</li>
+      <li>Swelling in the feet and ankles.</li>
+    </ul>
+      
+    <h3>Prevention Methods</h3>
+    <ul>
+      <li>Following a healthy diet low in fat and salt.</li>
+      <li>Exercising regularly for at least 30 minutes daily.</li>
+      <li>Controlling weight, cholesterol, and sugar levels.</li>
+      <li>Avoiding smoking and alcohol.</li>
+    </ul>
+   
+    <h3>Importance of Periodic Check-ups</h3>
+    <p>Periodic check-ups contribute to the early detection of any problems in the heart or blood vessels, helping to reduce the risks of serious complications such as heart attacks and strokes.</p>
+  </div>
+    
+  <div class="contact-section">
+    <h3>Contact Us</h3>
+    <p>📞 01025647820</p>
+    <p>📧 info@health-eg.com</p>
+    <p>📍 Damietta - Egypt</p>
+  </div>
+
+  <footer>
+    <p>© 2026 Egyptians' Health - All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function escapeRegex(text) {
+      return text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    }
+
+    const searchInput = document.querySelector('.header input');
+
+    searchInput.addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        let searchValue = searchInput.value.trim();
+        let content = document.getElementById("content");
+
+        if (searchValue !== "") {
+          let innerHTML = content.innerHTML;
+          let regex = new RegExp(searchValue, "gi");
+          content.innerHTML = innerHTML.replace(regex, `<span style="background-color: yellow;">${searchValue}</span>`);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

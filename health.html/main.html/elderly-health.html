@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Egyptians' Health - Elderly</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Playpen Sans Arabic', sans-serif;
+      background: linear-gradient(to bottom, #f4f3f8, #ffffff);
+      color: #333;
+    }
+
+    .header {
+      background-color: #38ACEC;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    } 
+
+    .header input {
+      color: gray;
+      text-align: center;
+      padding: 10px 15px;
+      width: 300px;
+      border-radius: 50px;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .header input:hover {
+      cursor: text;
+      transform: scale(1.1);
+    }
+
+    .title {
+      text-align: center;
+      padding: 30px 20px 10px 20px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      margin-top: 30px;
+      color: #0072b1;
+    }
+
+    .card {
+      width: 75%;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      line-height: 1.9;
+    }
+    
+    .text {
+      animation: fadeUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    h3 {
+      color: #0072b1;
+      font-family: 'Cairo', sans-serif;
+      margin-top: 25px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #0072b1;
+      font-weight: bold;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity : 0;
+        transform : translateY(100px);
+      }
+      to {
+        opacity : 1;
+        transform : translateY(0);
+      }  
+    } 
+   
+    .contact-section {
+      background-color : #eaf4ff;
+      padding : 40px;
+      text-align : center;
+      margin-top : 50px;   
+    }  
+    
+    .contact-section h3 {
+      margin-bottom: 20px;
+    }
+    
+    .contact-section p {
+      margin: 8px 0;
+      font-size: 16px;
+    }   
+    
+    footer {
+      color: black;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      font-size : 18px;  
+    }  
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <input type="text" placeholder="🔎 Click to search here...">
+  </div>
+
+  <div class="title">
+    Egyptians' Health - Elderly
+  </div>
+
+  <div class="text" id="content">
+    <div class="card">
+      <p>
+        With aging, the elderly require special healthcare to maintain quality of life and prevent chronic diseases and health complications.
+      </p>
+
+      <h3>Most Common Health Problems</h3>
+      <ul>
+        <li>High blood pressure.</li>
+        <li>Diabetes.</li>
+        <li>Heart diseases.</li>
+        <li>Osteoporosis.</li>
+        <li>Impaired vision and hearing.</li>
+      </ul>
+
+      <h3>Tips for Maintaining Elderly Health</h3>
+      <ul>
+        <li>Regular medical follow-up.</li>
+        <li>Eating a balanced diet rich in calcium and protein.</li>
+        <li>Practicing light exercise such as walking.</li>
+        <li>Focusing on mental health and social support.</li>
+      </ul>
+
+      <h3>Importance of Family Support</h3>
+      <p>
+        Psychological and social support from the family significantly contributes to improving the health and psychological status of the elderly and reduces feelings of isolation.
+      </p>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <h3>Contact Us</h3>
+    <p>📞 01025647820</p>
+    <p>📧 info@health-eg.com</p>
+    <p>📍 Damietta - Egypt</p>
+  </div>
+
+  <footer>
+    <p>© 2026 Egyptians' Health - All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function escapeRegex(text) {
+      return text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    }
+
+    const searchInput = document.querySelector('.header input');
+
+    searchInput.addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        let searchValue = searchInput.value.trim();
+        let content = document.getElementById("content");
+
+        if (searchValue !== "") {
+          let innerHTML = content.innerHTML;
+          let regex = new RegExp(searchValue, "gi");
+          content.innerHTML = innerHTML.replace(regex, `<span style="background-color: yellow;">${searchValue}</span>`);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

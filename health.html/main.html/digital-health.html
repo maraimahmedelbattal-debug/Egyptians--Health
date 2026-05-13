@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Health Initiatives in Egypt</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Playpen Sans Arabic', sans-serif;
+      background: linear-gradient(to bottom, #eef5ff, #ffffff);
+      color: #333;
+    }
+
+    .header {
+      background-color: #38ACEC;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    } 
+
+    .header input {
+      color: gray;
+      text-align: center;
+      padding: 10px 15px;
+      width: 300px;
+      border-radius: 50px;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    .header input:hover {
+      cursor: text;
+      transform: scale(1.1);
+    }
+
+    .title {
+      text-align: center;
+      padding: 30px 20px 10px 20px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      margin-top: 30px;
+      color: #0072b1;
+    }
+    .text {
+      animation: fadeUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .card {
+      width: 80%;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      line-height: 1.9;
+      text-align: left; /* Modified for English */
+    }
+
+    h3 {
+      color: #0072b1;
+      font-family: 'Cairo', sans-serif;
+      margin-top: 25px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 25px; /* Modified for English */
+      position: relative;
+    }
+
+    li::before {
+      content: "💻";
+      position: absolute;
+      left: 0; /* Modified for English */
+      color: #0072b1;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity : 0;
+        transform : translateY(100px);
+      }
+      to {
+        opacity : 1;
+        transform : translateY(0);
+      }  
+    } 
+    
+    .contact-section {
+      background-color : #eaf4ff;
+      padding : 40px;
+      text-align : center;
+      margin-top : 50px;   
+    }  
+    .contact-section h3 {
+      margin-bottom: 20px;
+      color: #0072b1;
+    }
+    .contact-section p {
+      margin: 8px 0;
+      font-size: 16px;
+    }   
+    footer {
+      color: black;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      font-size : 18px;  
+    }   
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <input type="text" placeholder="Click here to search 🔎">
+  </div>
+
+  <div class="title">
+    Digital Health Initiatives in Egypt
+  </div>
+
+  <div class="text" id="content">
+    <div class="card">
+
+      <p>
+        The state seeks to develop the healthcare system through digital transformation by linking hospitals electronically and activating the unified medical record, which contributes to facilitating services and improving the quality of healthcare.
+      </p>
+
+      <h3>Key Pillars of Digital Health Transformation</h3>
+      <ul>
+        <li>Launching the electronic Universal Health Insurance system.</li>
+        <li>Activating an electronic health record for each citizen.</li>
+        <li>Automating primary healthcare centers and units.</li>
+        <li>Linking medical laboratories and radiology centers electronically.</li>
+      </ul>
+
+      <h3>Digital Services Provided to Citizens</h3>
+      <ul>
+        <li>Booking medical appointments online.</li>
+        <li>Checking lab results via the internet.</li>
+        <li>Monitoring health status through mobile applications.</li>
+        <li>Submitting complaints and suggestions electronically.</li>
+      </ul>
+
+      <h3>Goals of Digital Health Initiatives</h3>
+      <ul>
+        <li>Reducing waiting times in hospitals.</li>
+        <li>Raising the efficiency of medical services.</li>
+        <li>Achieving equity in the distribution of healthcare services.</li>
+        <li>Improving data quality to make accurate health decisions.</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <h3>Contact Us</h3>
+    <p>📞 01025647820</p>
+    <p>📧 info@health-eg.com</p>
+    <p>📍 Damietta - Egypt</p>
+  </div>
+
+  <footer>
+    <p>© 2026 Health of Egypt's People - All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function escapeRegex(text) {
+      return text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    }
+
+    const searchInput = document.querySelector('.header input');
+
+    searchInput.addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        let searchValue = searchInput.value.trim();
+        let content = document.getElementById("content");
+
+        if (searchValue !== "") {
+          let innerHTML = content.innerHTML;
+          let regex = new RegExp(searchValue, "gi");
+          content.innerHTML = innerHTML.replace(regex, `<span style="background-color: yellow;">${searchValue}</span>`);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
